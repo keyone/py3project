@@ -17,4 +17,4 @@ EXPOSE 5000
 
 USER ${user}
 
-CMD python ./server.py
+CMD ["gunicorn", "server:app", "-b", "0.0.0.0:5000", "--keep-alive", "0"]
